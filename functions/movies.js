@@ -1,4 +1,3 @@
-require('dotenv').config();
 const { URL } = require('url');
 const fetch = require('node-fetch');
 const { query } = require('./util/hasura');
