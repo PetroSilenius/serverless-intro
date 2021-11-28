@@ -6,6 +6,9 @@ The course can be found [here](https://frontendmasters.com/workshops/serverless-
 > Serverless functions enable you to build dynamic web experiences without the hassle of setting up or maintaining servers! In this course, you'll learn how to create serverless functions to accomplish a variety of tasks that typically require a back-end. Whether that's securely loading data, processing form entries, handling user access, or doing something totally off the wall, serverless functions let you skip the boilerplate and get straight to building your app's logic!
 
 ## Final product
+
+Available on [serverless-intro.netlify.app](https://serverless-intro.netlify.app/)
+
 A movie resource website with a specific theme around the Shiba Inu dog breed. Users can log into the website on ```/login``` and they're then redirected to the admin panel. All functionalities are built with serverless functions and the web page content is built using [11ty](https://www.11ty.dev/).
 
 ## Installation
