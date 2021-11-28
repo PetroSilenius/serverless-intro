@@ -34,7 +34,7 @@
     text-transform: lowercase;
   }
 
-  .scores {
+  .ratings {
     display: grid;
     font-size: 0.75rem;
     font-variant: small-caps;
@@ -64,11 +64,30 @@
     <h2></h2>
     <p class="tagline"></p>
     <h3>Viewer ratings</h3>
-    <ul class="scores"></ul>
+    <ul class="ratings"></ul>
   </div>
 </template>
 
 <script>
+  function addRatings(element, ratings) {
+    ratings.forEach((rating) => {
+      const item = document.createElement('li');
+      const label = document.createElement('span');
+      label.classList.add('source');
+
+      // shorten the long name to make the layout look nice
+      label.innerText = rating.Source === 'Internet Movie Database' ? 'IMDb' : rating.Source;
+      item.appendChild(label);
+
+      const value = document.createElement('span');
+      value.innerText = rating.Value;
+      item.appendChild(value);
+
+      const ratingsElement = element.querySelector('.ratings');
+      ratingsElement.appendChild(item);
+    });
+  }
+
   async function initialize() {
     const movies = await fetch('/.netlify/functions/movies').then((response) => response.json());
 
@@ -84,6 +103,8 @@
 
       newElement.querySelector('h2').innerText = movie.title;
       newElement.querySelector('.tagline').innerText = movie.tagline;
+
+      addRatings(newElement, movie.ratings);
 
       container.appendChild(newElement);
     });
